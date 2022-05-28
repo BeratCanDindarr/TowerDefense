@@ -56,7 +56,7 @@ namespace EnemyAI
         }
         IEnumerator EnemyWaiting()
         {
-            Debug.Log("deneme");
+            
             for(int i = 0; i< enemyList.Count; i++)
             {
                  ActiveControl(enemyList[i],true);

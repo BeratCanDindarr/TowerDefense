@@ -13,7 +13,7 @@ namespace EnemyAI
         {
            var _spawnEnemy = spawnEnemy.GetComponent<SpawnEnemy>();
            _spawnEnemy.SpawnVaveEnemy(numberOfEnemys);
-           Debug.Log("deneme");
+           
         }
 
         // Update is called once per frame
