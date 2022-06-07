@@ -1,4 +1,4 @@
-using System.Diagnostics;
+
 using System.Transactions;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,15 +11,18 @@ namespace Turret
     {
     
         public List<GameObject> enemys;
+        public LayerMask enemyLayers;
         
         bool isNull = true;
         RaycastHit hit;
         public float damage;
         float distance = 10f;
+        public float timeLeft;
+        float _timeLeft;
         // Start is called before the first frame update
         void Start()
         {
-            
+            _timeLeft = timeLeft;
         }
 
         // Update is called once per frame
@@ -27,8 +30,14 @@ namespace Turret
         {
             if(!isNull) 
             {
-                LookGameObject();
-                Ray();            
+                LookGameObject();               
+                _timeLeft -= Time.deltaTime;
+                if(_timeLeft < 0)
+                {
+                    Debug.Log("ateş edildi");
+                    Ray();            
+                    _timeLeft = timeLeft;
+                }
             }
         }
         void OnTriggerEnter(Collider other)
@@ -68,8 +77,9 @@ namespace Turret
         }
         void Ray()
         {
+            Debug.DrawRay(transform.position, transform.forward, Color.red);
             var fwd =transform.TransformDirection (Vector3.forward); 
-            if(Physics.Raycast(transform.position,fwd,out hit,distance) && hit.transform.tag == "Enemy")
+            if(Physics.Raycast(transform.position,fwd,out hit,distance,enemyLayers) && hit.transform.tag == "Enemy")
             {
                 var enemy = hit.transform.gameObject.GetComponent<PlayerNavmesh>();
                 if(enemy.health < 0)
@@ -78,7 +88,7 @@ namespace Turret
                     enemys.Remove(enemy.gameObject);
                     isNull = true;
                 }
-                enemy.Damaged(damage*Time.deltaTime);
+                enemy.Damaged(damage);
             }
         }
         void Destroy(GameObject destroye)
