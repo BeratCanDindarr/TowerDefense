@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,13 @@ namespace EnemyAI
     {
          public int numberOfEnemys;
         public GameObject spawnEnemy;
+        
+        
         void Start()
         {
            var _spawnEnemy = spawnEnemy.GetComponent<SpawnEnemy>();
            _spawnEnemy.SpawnVaveEnemy(numberOfEnemys);
+          
            
         }
 
@@ -21,6 +25,7 @@ namespace EnemyAI
         {
             
         }
+        
     }
 
 }

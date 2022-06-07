@@ -1,26 +1,45 @@
-using System.Diagnostics;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerNavmesh : MonoBehaviour
+namespace Turret
 {
-    [SerializeField] Transform movePositionTransform;
-    private NavMeshAgent navMeshAgent;
-    private void Awake() 
+
+    public class PlayerNavmesh : MonoBehaviour
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        [SerializeField] Transform movePositionTransform;
+        private NavMeshAgent navMeshAgent;
+        public float health;
+        float _damage;
         
-    }
-    void Start()
-    {
-        navMeshAgent.destination = movePositionTransform.position;
+        private void Awake() 
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+            
+        }
+        void Start()
+        {
+            navMeshAgent.destination = movePositionTransform.position;
+            
+        }
+        private void Update() 
+        {
+            
+        }
+        public void Damaged(float damage)
+        {
+            _damage = damage;
+            health -= _damage;
+        }
+        public void Deneme()
+        {
+            Destroy(gameObject);
+        }
         
-    }
-    private void Update() {
         
-    }
     
-  
+    }
 }

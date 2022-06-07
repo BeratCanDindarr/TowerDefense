@@ -37,7 +37,9 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\SpawnEnemy.cs" />
+     <Compile Include="Assets\Scripts\TurretDamage.cs" />
      <Compile Include="Assets\Scripts\LookatTarget.cs" />
+     <Compile Include="Assets\Scripts\TurretDamageSystem.cs" />
      <Compile Include="Assets\Scripts\PlayerNavmesh.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\EnemyScriptableObject.cs" />

@@ -8,10 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "towerDefense/Enemy")]
 public class EnemyScriptableObject : ScriptableObject
 {
-
-        public int numberOfEnemys;
-        public GameObject enemy;
-        public  Transform enemyParentGameObject;
-        public List<GameObject> enemyList = new List<GameObject>();
+        public List<GameObject> enemys;
+        public bool damageControl = false;
 }
 

@@ -8,7 +8,7 @@ namespace EnemyAI
          public int numberOfEnemys;
         [SerializeField]protected GameObject enemy;
         [SerializeField]protected  Transform enemyParentGameObject;
-        [SerializeField]protected List<GameObject> enemyList = new List<GameObject>();
+        public List<GameObject> enemyList = new List<GameObject>();
         // Start is called before the first frame update
     
         void Awake()

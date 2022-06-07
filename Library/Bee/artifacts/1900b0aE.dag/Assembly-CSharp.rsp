@@ -345,6 +345,8 @@
 "Assets/Scripts/LookatTarget.cs"
 "Assets/Scripts/PlayerNavmesh.cs"
 "Assets/Scripts/SpawnEnemy.cs"
+"Assets/Scripts/TurretDamage.cs"
+"Assets/Scripts/TurretDamageSystem.cs"
 -langversion:9.0
 
 /deterministic
